@@ -36,7 +36,7 @@ async function enviarEmail(preco) {
     // Opções do e-mail
     const mailOptions = {
         from: process.env.EMAIL,
-        to: 'glopes@montana.com.br',
+        to: 'rsilva@montana.com.br',
         subject: 'Alerta de Preço do Cobre',
         html: htmlContent, // Conteúdo do e-mail em HTML
         attachments: [
