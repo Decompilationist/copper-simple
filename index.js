@@ -25,20 +25,40 @@ app.get('/', (req, res) => {
 });
 
 async function enviarEmail(preco) {
+    // Conteúdo do e-mail em HTML
+    const htmlContent = `
+        <h1>Alerta de Preço do Cobre</h1>
+        <p>O preço do cobre ultrapassou $4.50. Preço atual: <strong>$${preco.toFixed(2)}</strong></p>
+        <p>Aqui está um exemplo de texto em negrito.</p>
+    `;
+
+    // Opções do e-mail
     const mailOptions = {
         from: process.env.EMAIL,
         to: 'glopes@montana.com.br',
         subject: 'Alerta de Preço do Cobre',
-        text: `O preço do cobre ultrapassou $4.50. Preço atual: $${preco.toFixed(2)}`
+        html: htmlContent, // Conteúdo do e-mail em HTML
+        attachments: [
+            {
+                filename: 'documento.txt', // Nome do arquivo anexado
+                content: 'Conteúdo do arquivo em texto plano' // Conteúdo do arquivo anexado
+            },
+            {
+                filename: 'imagem.png', // Nome do arquivo anexado
+                path: 'caminho/para/imagem.png' // Caminho para a imagem a ser anexada
+            }
+        ]
     };
 
     try {
+        // Envia o e-mail
         await transporter.sendMail(mailOptions);
         console.log('E-mail enviado com sucesso!');
     } catch (error) {
         console.error('Erro ao enviar e-mail:', error);
     }
 }
+
 
 app.post('/enviar-email', async (req, res) => {
     try {
