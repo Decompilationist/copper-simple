@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preço do Cobre</title>
+</head>
+<body>
+    <h1>Insira o preço do cobre:</h1>
+    <form id="cobreForm">
+        <input type="number" id="valorCobre" name="valorCobre" step="0.01" required>
+        <button type="submit">Enviar</button>
+    </form>
+
+    <script>
+        document.getElementById('cobreForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const valorCobre = document.getElementById('valorCobre').value;
+            const response = await fetch('/enviar-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ valorCobre })
+            });
+            const data = await response.json();
+            console.log(data);
+        });
+    </script>
+</body>
+</html>
