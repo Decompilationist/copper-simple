@@ -27,7 +27,7 @@ app.get('/', (req, res) => {
 async function enviarEmail(preco) {
     const mailOptions = {
         from: process.env.EMAIL,
-        to: 'verboty@gmail.com',
+        to: 'glopes@montana.com.br',
         subject: 'Alerta de Preço do Cobre',
         text: `O preço do cobre ultrapassou $4.50. Preço atual: $${preco.toFixed(2)}`
     };
