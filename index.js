@@ -29,7 +29,7 @@ async function enviarEmail(preco) {
     const htmlContent = `
         <h1>Alerta de Preço do Cobre</h1>
         <p>O preço do cobre ultrapassou $4.50. Preço atual: <strong>$${preco.toFixed(2)}</strong></p>
-        <p>Aqui está um exemplo de texto em negrito.</p>
+        <a href="https://www.google.com/finance/quote/HGW00:COMEX">Fonte.</a>
         <img src="https://th.bing.com/th/id/OIP.TPSKIKdPSMLbeqCRH0mv7gAAAA?rs=1&pid=ImgDetMain" alt="Imagem do Cobre">
     `;
 
