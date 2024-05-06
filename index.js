@@ -30,6 +30,7 @@ async function enviarEmail(preco) {
         <h1>Alerta de Preço do Cobre</h1>
         <p>O preço do cobre ultrapassou $4.50. Preço atual: <strong>$${preco.toFixed(2)}</strong></p>
         <p>Aqui está um exemplo de texto em negrito.</p>
+        <img src="https://th.bing.com/th/id/OIP.TPSKIKdPSMLbeqCRH0mv7gAAAA?rs=1&pid=ImgDetMain" alt="Imagem do Cobre">
     `;
 
     // Opções do e-mail
@@ -40,12 +41,8 @@ async function enviarEmail(preco) {
         html: htmlContent, // Conteúdo do e-mail em HTML
         attachments: [
             {
-                filename: 'documento.txt', // Nome do arquivo anexado
-                content: 'Conteúdo do arquivo em texto plano' // Conteúdo do arquivo anexado
-            },
-            {
-                filename: 'imagem.png', // Nome do arquivo anexado
-                path: 'caminho/para/imagem.png' // Caminho para a imagem a ser anexada
+                filename: 'materiaprimacobre.png', // Nome do arquivo anexado
+                path: 'https://th.bing.com/th/id/OIP.TPSKIKdPSMLbeqCRH0mv7gAAAA?rs=1&pid=ImgDetMain' // URL da imagem a ser anexada
             }
         ]
     };
@@ -58,7 +55,6 @@ async function enviarEmail(preco) {
         console.error('Erro ao enviar e-mail:', error);
     }
 }
-
 
 app.post('/enviar-email', async (req, res) => {
     try {
