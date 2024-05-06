@@ -45,7 +45,7 @@ app.post('/enviar-email', async (req, res) => {
         const { valorCobre } = req.body;
         console.log('Valor do cobre recebido:', valorCobre);
 
-        if (parseFloat(valorCobre) > 4.50) {
+        if (parseFloat(valorCobre) >= 4.50) {
             await enviarEmail(parseFloat(valorCobre));
             res.json({ message: 'E-mail enviado com sucesso!' });
         } else {
