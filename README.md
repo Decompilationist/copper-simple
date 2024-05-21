@@ -65,4 +65,4 @@ Substitua `sua_conta@gmail.com` pela sua conta de e-mail do Gmail e `sua_senha` 
 
 ## ⚠️ Aviso ⚠️
 
-Este serviço de alerta de precificação de cobre é apenas um exemplo educacional e pode necessitar de ajustes e melhorias para uso em produção.
+Este serviço de alerta de precificação de cobre faz uso do Microsoft Power Automate, a utilização da ferramenta é crucial para o aproveitamento 100% do projeto.
