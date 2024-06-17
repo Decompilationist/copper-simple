@@ -37,7 +37,7 @@ async function enviarEmail(preco) {
     // Opções do e-mail
     const mailOptions = {
         from: process.env.EMAIL,
-        to: 'rsilva@montana.com.br',
+        to: 'glopes@montana.com.br',
         subject: 'Alerta de Preço do Cobre',
         html: htmlContent, // Conteúdo do e-mail em HTML
         attachments: [
@@ -62,7 +62,7 @@ app.post('/enviar-email', async (req, res) => {
         const { valorCobre } = req.body;
         console.log('Valor do cobre recebido:', valorCobre);
 
-        if (parseFloat(valorCobre) >= 4.50) {
+        if (parseFloat(valorCobre) >= 4.20) {
             await enviarEmail(parseFloat(valorCobre));
             res.json({ message: 'E-mail enviado com sucesso!' });
         } else {
